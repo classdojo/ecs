@@ -22,6 +22,18 @@ class EntityTests: XCTestCase {
         XCTAssertEqual(max.id, Int(UInt32.max))
     }
 
+    func testEntityIdentifierRawValue() {
+        let rawInit = EntityIdentifier(rawValue: UInt32.min)
+        XCTAssertEqual(rawInit.id, Int(UInt32.min))
+
+        let plainInit = EntityIdentifier(UInt32.min)
+        XCTAssertEqual(plainInit.id, Int(UInt32.min))
+
+        XCTAssertEqual(rawInit.rawValue, UInt32.min)
+        XCTAssertEqual(rawInit.rawValue, plainInit.rawValue)
+        XCTAssertEqual(rawInit.id, plainInit.id)
+    }
+
     func testAllComponentsOfEntity() {
         let nexus = Nexus()
 
