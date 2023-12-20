@@ -4,10 +4,9 @@ on: push
 
 jobs:
   markdown-link-check:
-    runs-on: ubuntu-latest
+    runs-on: ["self-hosted", "general-ubuntu-amd"]
     steps:
-    - name: Checkout
-      uses: actions/checkout@master
-    - name: markdown-link-check
-      uses: gaurav-nelson/github-action-markdown-link-check@master
-
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: markdown-link-check
+        uses: gaurav-nelson/github-action-markdown-link-check@master
