@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   macOS:
@@ -37,7 +37,7 @@ jobs:
           DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode }}.app/Contents/Developer
 
   linux:
-    runs-on: ubuntu-latest
+    runs-on: ["self-hosted", "general-ubuntu-amd"]
     strategy:
       matrix:
         swift: ["5.1", "latest"]
@@ -66,10 +66,9 @@ jobs:
           fail_ci_if_error: true
       - name: Build Release
         run: swift build -c release
-        
 
   webAssembly:
-    runs-on: ubuntu-20.04
+    runs-on: ["self-hosted", "general-ubuntu-amd"]
     steps:
       - name: Checkout
         uses: actions/checkout@master
