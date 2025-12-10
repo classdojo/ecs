@@ -14,7 +14,7 @@ on:
 
 jobs:
   build:
-    runs-on: ["self-hosted", "general-ubuntu-amd"]
+    runs-on: ["general-ubuntu-amd"]
 
     steps:
       - uses: actions/checkout@master
